@@ -1,6 +1,7 @@
 import 'package:crystalonbritsols_task/navigation_path.dart';
 import 'package:crystalonbritsols_task/screens/login/data/generate_token_response.dart';
 import 'package:crystalonbritsols_task/screens/login/repo/login_repo.dart';
+import 'package:crystalonbritsols_task/services/storage_helper.dart';
 import 'package:crystalonbritsols_task/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,9 +24,8 @@ class LoginScreenController extends GetxController {
       }
 
       if (generateTokenResponse != null) {
-        printLog(
-            "${generateTokenResponse!.tokenType} ${generateTokenResponse!.accessToken!}");
-        await globalCahce.setGlobalCache(
+        await StorageHelper.mInstance.setString(
+          StorageHelper.storageAccessToken,
           "${generateTokenResponse!.tokenType} ${generateTokenResponse!.accessToken!}",
         );
         Get.offAllNamed(NavigationPath.homeScreen);

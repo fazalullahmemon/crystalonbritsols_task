@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:crystalonbritsols_task/utils/global_cache.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,6 @@ const spaceH24 = SizedBox(width: 24);
 
 const noWidget = SizedBox.shrink();
 
-final GlobalCahce globalCahce = GlobalCahce();
 late String deviceId;
 
 void printLog(message) {
